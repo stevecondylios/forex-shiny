@@ -1,4 +1,6 @@
 library(shiny)
+library(quantmod)
+library(tidyverse)
 
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
