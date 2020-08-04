@@ -1,6 +1,8 @@
 library(shiny)
-library(quantmod)
+library(plotly)
+library(ggplot2)
 library(tidyverse)
+library(lubridate)
 
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
@@ -15,11 +17,17 @@ ui <- fluidPage(
     sidebarPanel(
 
       # Input: Slider for the number of bins ----
-      sliderInput(inputId = "bins",
-                  label = "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
+      selectInput(inputId = "start_year",
+                  label = "Start Year:",
+                  choices =  c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020)), 
+      
+      selectInput(inputId = "end_year",
+                  label = "End Year:",
+                  choices =  c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020)), 
+      
+            selectInput(inputId = "currency",
+                  label = "Currency",
+                  choices = c("USD", "EUR", "GPD"))
 
     ),
 
