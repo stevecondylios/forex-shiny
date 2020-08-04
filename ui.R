@@ -19,11 +19,13 @@ ui <- fluidPage(
       # Input: Slider for the number of bins ----
       selectInput(inputId = "start_year",
                   label = "Start Year:",
-                  choices =  c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020)), 
+                  choices =  c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020),
+                  selected = 2010), 
       
       selectInput(inputId = "end_year",
                   label = "End Year:",
-                  choices =  c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020)), 
+                  choices =  c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020),
+                  selected = 2020), 
       
             selectInput(inputId = "currency",
                   label = "Currency",
@@ -35,7 +37,7 @@ ui <- fluidPage(
     mainPanel(
 
       # Output: Histogram ----
-      plotOutput(outputId = "distPlot")
+      plotlyOutput(outputId = "distPlot")
 
     )
   )

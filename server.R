@@ -9,7 +9,7 @@ server <- function(input, output) {
   # 1. It is "reactive" and therefore should be automatically
   #    re-executed when inputs (input$bins) change
   # 2. Its output type is a plot
-  output$distPlot <- renderPlot({
+  output$distPlot <- renderPlotly({
 
     currency <- input$currency
     start_year <- input$start_year 
@@ -24,7 +24,7 @@ server <- function(input, output) {
     
     start_date <- start_year %>% as.numeric
     end_date <- end_year %>% as.numeric
-    len_years <- end_date - start_date
+    len_years <- (end_date - start_date) + 1
     
     currency_col_name <- currency %>% tolower %>% paste0("aud_to_", .)
     currency <- sym(currency_col_name)
@@ -41,7 +41,7 @@ server <- function(input, output) {
     
     plot
     
-    # plot %>% ggplotly
+    plot %>% ggplotly
 
 
     })
